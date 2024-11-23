@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Drone Livestream</title>
+
+    </head>
+
+    <body>
+    
+        <p>Hello World!</p>
+
+        <script>
+            const socket = new WebSocket('/echo');
+
+            socket.onopen = function(event) {
+              // Handle connection open
+
+                console.log("Opened Socket");
+            };
+
+            socket.onmessage = function(event) {
+              // Handle received message
+
+              alert(event.data);
+            };
+
+            socket.onclose = function(event) {
+              // Handle connection close
+
+              console.log('Disconnected from WebSocket server');
+            };
+
+            const sendMessage = (message) => {
+              socket.send(message);
+            }
+        </script>
+    </body>
+
+</html>
