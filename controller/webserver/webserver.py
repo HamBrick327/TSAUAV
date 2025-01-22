@@ -17,7 +17,8 @@ def echo_socket(ws):
         print(message)
         ws.send(message)
 
-if __name__ == "__main__":
+## probelm is probably here, I think the code just isn't set up to handle a 500 request.
+if __name__ == "__main__": 
     from gevent import pywsgi
     from geventwebsocket.handler import WebSocketHandler
     server = pywsgi.WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
